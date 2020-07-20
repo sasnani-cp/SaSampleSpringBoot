@@ -56,5 +56,21 @@ public class StudentController {
 		}
 	}
 	
+	
+	@PostMapping("/tasks/complete")
+	public void completeTask(@RequestParam(value="user") String user, @RequestParam(value="pwd")String pwd, HttpServletResponse response) {
+		
+		System.out.println("Login called: User ="+user);
+		System.out.println("Login called: Password ="+pwd);
+		
+		if ("admin".equals(user) && "admin".equals(pwd)) {
+			
+			System.out.println("successfully logged in");
+			Cookie cookie = new Cookie("CookieId","1234567890");
+			response.addCookie(cookie);
+		}
+	}
+
+	
 
 }
